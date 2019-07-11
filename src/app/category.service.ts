@@ -10,7 +10,7 @@ import { map } from 'rxjs/operators';
 export class CategoryService {
   constructor(private db: AngularFireDatabase) { }
 
-  getCategories(): Observable<CategoryId[]> {
+  getAll(): Observable<CategoryId[]> {
     return this.db.list('/categories', ref => {
       return ref.orderByChild('name');
     }).snapshotChanges().pipe(map(actions => {
